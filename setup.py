@@ -2,11 +2,12 @@
 import setuptools
 
 setup_requires = [
-    "loguru==0.5.3",
-    "click==8.0.1",
-    "types_attrs==19.1.0",
-    "attrs==21.2.0",
-    "pygithub==1.55",
+    "loguru>=0.5.3",
+    "click>=8.0.1",
+    "types_attrs>=19.1.0",
+    "attrs>=21.2.0",
+    "pygithub>=1.55",
+    "setuptools_scm>=6.3.2"
 ]
 
 setuptools.setup(
@@ -20,7 +21,6 @@ setuptools.setup(
         'auto-pull-request=auto_pull_request.parser:main',
     ],
     },
-    # scripts=['auto_pull_request/parser.py'],
     classifiers =[
             "Programming Language :: Python :: 3",
             "License :: OSI Approved :: MIT License",
