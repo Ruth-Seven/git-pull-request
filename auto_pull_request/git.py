@@ -188,11 +188,10 @@ class Git:
             raise RuntimeError(f"Unable create new branch {branch} from branch {base_branch}")
     
     def add_remote_ulr(self, remote, url):
-        try:
-            _run_shell_command(["git", "remote", "add", remote, url])
-        except RuntimeError as e:
-            url = _run_shell_command(["git", "remote", "get-url", remote])
-            logger.info(f"The config has been add. The the url of {remote} remote is {url}. Exception:{e}")
+        url = _run_shell_command(["git", "remote", "get-url", remote])
+        if not url:
+                _run_shell_command(["git", "remote", "add", remote, url])
+        logger.info(f"The config has been add. The the url of {remote} remote is {url}.")
     
     def fetch_branch(self, repo, branch):
         return _run_shell_command(["git", "fetch", repo, branch])
